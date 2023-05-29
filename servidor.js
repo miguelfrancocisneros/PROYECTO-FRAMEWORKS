@@ -13,7 +13,7 @@ require('dotenv').config();
 const USUARIO  = process.env.USUARIO_BD;
 const CLAVE    = process.env.CLAVE_BD;
 const SERVIDOR = process.env.SERVIDOR_BD;
-const PUERTO   = process.env.PORT || 4000;
+const PUERTO   = process.env.PORT || 3000;
 
 console.log("USUARIO", USUARIO);
 console.log("CLAVE", CLAVE);
