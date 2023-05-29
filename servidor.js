@@ -10,13 +10,15 @@ const MAX_DIRECTORES = 25; // maximo número de respuestas de base de datos
 const MAX_PELICULAS  = 10;
 
 require('dotenv').config();
-const USUARIO = process.env.USUARIO_BD;
-const CLAVE   = process.env.CLAVE_BD;
+const USUARIO  = process.env.USUARIO_BD;
+const CLAVE    = process.env.CLAVE_BD;
 const SERVIDOR = process.env.SERVIDOR_BD;
+const PUERTO   = process.env.PORT || 4000;
 
 console.log("USUARIO", USUARIO);
 console.log("CLAVE", CLAVE);
 console.log("SERVIDOR", SERVIDOR);
+console.log("PUERTO", PUERTO);
  
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
@@ -50,11 +52,17 @@ app.get('/peliculas', async (req, res) => {
 // servicio estático desde public 
 app.use('/', fileServerMiddleware);   
 
-app.listen(3000, function () {
-  console.log('App escuchando en el puerto 3000');
+
+app.listen(PUERTO, function () {
+  console.log('App escuchando en el puerto', PUERTO);
 });
 
+
+
 // Funciones de peticion de info a MongoDB
+
+
+
 // getDirectores:
 // - client: cliente MongoDB
 // - regexp_nombre: expresión regular para búsqueda de director en forma de regex /<regexp_nombre>/i
@@ -89,6 +97,8 @@ async function getDirectores(client, regexp_nombre) {
 
 }
 
+
+/************************************************************ */
 // Devuelve las películas de cierto director
 // - cliente: cliente MongoDB
 // - director: nombre  del director
@@ -102,3 +112,7 @@ async function getPeliculas(client, director) {
                 .toArray();
     })
 }
+/************************************************************* */
+
+
+
