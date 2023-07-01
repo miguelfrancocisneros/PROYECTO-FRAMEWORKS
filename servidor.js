@@ -107,7 +107,7 @@ async function getPeliculas(client, director) {
   return await client.connect().then( async (conexion)=>{
       return await conexion.db("sample_mflix")
                 .collection("movies").find({ directors: {$elemMatch: {$regex: re2}}})
-                .project({_id:0, title:1, poster:1})
+                .project({_id:0, title:1, poster:1, fullplot:1, imdb:1, genres:1})
                 .limit(MAX_PELICULAS)
                 .toArray();
     })
