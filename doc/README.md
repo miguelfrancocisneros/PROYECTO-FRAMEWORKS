@@ -53,7 +53,7 @@ Una vez se ha accedido a esta carpeta, si es la primera vez que se accede a la a
 npm install 
 ```
 De esta forma se instalan los módulos requeridos en la aplicación.
-
+  
 Por último, para lanzar la aplicación se ejecuta el comando:
 ```bash
 npm start 
